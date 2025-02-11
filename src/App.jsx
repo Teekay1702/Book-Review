@@ -1,4 +1,3 @@
-app.jsx
 import React from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
@@ -15,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

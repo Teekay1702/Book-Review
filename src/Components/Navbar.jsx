@@ -1,18 +1,17 @@
-NavBar.jsx
 import React from 'react'
 
 const NavBar = () => {
   return (
     <div>
         <div>
-            <h1 className="lg:text-3xl">CR</h1>
+            <h1>CR</h1>
             <nav>
-                <ul className="flex ml-5">
+                <ul className="">
                     <li>
-                        <a href="/" className='mr-5 focus:text-black'>Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/quotes" className='focus:text-black'>Quotes</a>
+                        <a href="/quotes">Quotes</a>
                     </li>
                 </ul>
             </nav>
