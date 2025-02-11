@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './Navbar';
 import Input from './Input';
-
-
+import BookList from './BookList';
 
 const Home = () => {
     const [term, setTerm] = useState('Anything');
     const [Books, setBooks] = useState([]);
 
-    useEffect (() => {
+    useEffect(() => {
         fetch(`https://www.googleapis.com/books/v1/volumes q=${term}&key=${import.meta.env.VITE_SOME_VALUE}`)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            setBooks(data.items);
-        })
-        .catch((err) => {
-            setError(err.message);
-        });
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setBooks(data.items);
+            })
+            .catch((err) => {
+                setError(err.message);
+            });
     }, []);
+
     return (
         <div>
             <NavBar />
@@ -32,6 +32,9 @@ const Home = () => {
                         and builds castles of possibilities."
                     </p>
                     <Input />
+                    <div>
+                        <BookList Books={Books} />
+                    </div>
                 </div>
             </div>
         </div>
