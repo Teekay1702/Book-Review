@@ -1,19 +1,32 @@
+import { useState } from 'react';
+
 const Input = ({ searchBooks }) => {
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type='text'
-            placeholder='type here...'
-            autoComplete='off'
-            className='input'
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button type='submit' className='btn'>
-            search
-          </button>
-        </form>
-      </div>
-    );
+  const [search, setSearch] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim()) {
+      searchBooks(search);
+    }
   };
-  export default Input;
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Type here..."
+          autoComplete="off"
+          className="input"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit" className="btn">
+          Search
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Input;

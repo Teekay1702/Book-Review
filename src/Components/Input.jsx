@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Input = () => {
+const Input = ({ searchBooks }) => {
+    const [search, setSearch] = useState("");
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitted");
+        if (search.trim()) {
+            searchBooks(search); // Pass search term to parent
+        }
     };
 
     return (
@@ -14,12 +18,15 @@ const Input = () => {
                     placeholder="Enter your search term"
                     autoComplete="off"
                     className="input"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                 />
                 <button type="submit" className="btn">
                     Search
                 </button>
             </form>
         </div>
-    )
-}
+    );
+};
+
 export default Input;

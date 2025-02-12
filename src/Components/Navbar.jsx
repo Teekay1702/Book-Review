@@ -1,22 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import for React Router
 
 const NavBar = () => {
   return (
-    <div>
-        <div>
-            <h1>CR</h1>
-            <nav>
-                <ul className="">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/quotes">Quotes</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <header className="navbar">
+      <div className="container">
+        <h1>CR</h1>
+        <nav>
+          <ul className="nav-links">
+            <li>
+              <Link to="/">Home</Link> {/* Use Link instead of <a> */}
+            </li>
+            <li>
+              <Link to="/quotes">Quotes</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
+
 export default NavBar;
